@@ -5,5 +5,7 @@ Rails.application.routes.draw do
   # EXAMPLE JSON ROUTE WITH API NAMESPACE
   namespace :api do
     get "/actor" => "actors#single_actor"
+    get "/all_movies" => "movies#all_movies"
+    get "/movie" => "movies#movie"
   end
 end
