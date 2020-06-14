@@ -1,8 +1,11 @@
 class Api::MoviesController < ApplicationController
+
+  before_action :authenticate_admin, except: [:index, :show]
+  
   def index
-    @movie = Movie.all
+    @movies = Movie.all
     if params[:sort_by] == "english"
-      @movie = @movie.where(english: "yes")
+      @movies = @movies.where(english: "yes")
     end
     render 'index.json.jb'
   end
